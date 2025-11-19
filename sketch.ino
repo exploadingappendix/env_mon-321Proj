@@ -1,26 +1,5 @@
-// #include <dht.h>
-// // #include <DHT_U.h>
-// // #include <TM1637Display.h>
-
-// #define DHTPIN 2
-// // #define DHTTYPE DHT11
-// // DHT dht(DHTPIN, DHTTYPE);
-// dht DHT;
-
-// void setup() {
-//   Serial.begin(9600);
-
-// }
-
-// void loop() {
-//   int chk = DHT.read11(DHTPIN);
-//   Serial.print("Temperature = ");
-//   Serial.println(DHT.temperature);
-//   Serial.print("Humidity = ");
-//   Serial.println(DHT.humidity);
-//   delay(1000);
-
-// }
+// For testing, we manually changed the temperature and the humidity surrounding the sensor to test
+// and see if the readings would change and compared the readings to credible online weather data.
 
 #include <dht.h> // You need to download the libary and connect it
 // link to libary: https://www.arduinolibraries.info/libraries/dh-tlib
