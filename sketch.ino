@@ -9,6 +9,7 @@ dht DHT;
 
 #define DHT11_PIN 2
 #define sensor A0 
+#define button 8
 
 #define CLK1 3  
 #define DIO1 4 
@@ -18,7 +19,7 @@ dht DHT;
 TM1637Display display1(CLK1, DIO1);  // For temperature
 TM1637Display display2(CLK2, DIO2);  // For humidity
 
-const uint8_t LETTER_C = SEG_A | SEG_F | SEG_E | SEG_D;    
+const uint8_t LETTER_F = SEG_A | SEG_F | SEG_E | SEG_G;    
 const uint8_t LETTER_H = SEG_F | SEG_E | SEG_B | SEG_C | SEG_G;
 int airQ = 0;
 
@@ -30,7 +31,7 @@ void setup(){
 
 void loop(){
   int chk = DHT.read11(DHT11_PIN);
-  float temp = DHT.temperature;        // Read temperature
+  float temp = ((DHT.temperature * 9.0)/5.0 + 32.0);        // Read temperature
 	float hum = DHT.humidity;           // Read humidity
 	airQ = analogRead(sensor); 				// Read Air Quality
 
@@ -47,7 +48,7 @@ void loop(){
     display1.encodeDigit((t / 10) % 10), 
     display1.encodeDigit(t % 10),        
     0x00,                                
-    LETTER_C                            
+    LETTER_F                            
   };
   display1.setSegments(tempData);
 
@@ -62,5 +63,5 @@ void loop(){
 	Serial.println("Air Quality = ");
 	Serial.println(airQ);
 
-	delay(2000); // wait two seconds
+	delay(1000); // wait two seconds
 }
