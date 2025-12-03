@@ -63,5 +63,5 @@ void loop(){
 	Serial.println("Air Quality = ");
 	Serial.println(airQ);
 
-	delay(1000); // wait two seconds
+	delay(1000);
 }
